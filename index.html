@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Для Оли</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-black: #0a0a0a;
+            --secondary-black: #1a1a1a;
+            --accent-green: #1db954;
+            --light-green: #1ed760;
+            --dark-green: #15803d;
+            --primary-gray: #2a2a2a;
+            --light-gray: #4a4a4a;
+            --text-gray: #cccccc;
+            --text-light: #f0f0f0;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: var(--primary-black);
+            color: var(--text-gray);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        /* Шапка с параллакс-эффектом */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(10, 10, 10, 0.8), rgba(10, 10, 10, 0.9)), url('https://images.unsplash.com/photo-1519681393784-d120267933ba?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 40px;
+            background-color: rgba(26, 26, 26, 0.7);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--light-gray);
+            box-shadow: var(--shadow);
+            transform: translateY(0);
+            animation: floatUp 1.5s ease-out;
+        }
+        
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero h1 {
+            font-size: 4.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, var(--accent-green), var(--light-green));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 5px 15px rgba(29, 185, 84, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            color: var(--text-gray);
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--accent-green);
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 50px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(29, 185, 84, 0.3);
+            border: 2px solid var(--accent-green);
+        }
+        
+        .cta-button:hover {
+            background-color: transparent;
+            color: var(--accent-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(29, 185, 84, 0.4);
+        }
+        
+        /* Секция "О нашей дружбе" */
+        .about {
+            background-color: var(--secondary-black);
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, transparent, var(--secondary-black));
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            display: inline-block;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-green);
+            border-radius: 2px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text p {
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            position: relative;
+        }
+        
+        .image-frame {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            position: relative;
+            border: 2px solid var(--accent-green);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .image-frame:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(29, 185, 84, 0.2);
+        }
+        
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.7s ease;
+        }
+        
+        .image-frame:hover img {
+            transform: scale(1.05);
+        }
+        
+        /* Секция фандомов */
+        .fandoms {
+            background-color: var(--primary-black);
+        }
+        
+        .fandoms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+        
+        .fandom-card {
+            background-color: var(--primary-gray);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+            position: relative;
+            cursor: pointer;
+        }
+        
+        .fandom-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-green);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+        }
+        
+        .fandom-img {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+        }
+        
+        .fandom-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .fandom-card:hover .fandom-img img {
+            transform: scale(1.1);
+        }
+        
+        .fandom-content {
+            padding: 25px;
+        }
+        
+        .fandom-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+        }
+        
+        .fandom-content p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        
+        /* Улучшенная галерея */
+        .gallery {
+            background-color: var(--secondary-black);
+            position: relative;
+        }
+        
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 60px;
+        }
+        
+        .gallery-item {
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+            position: relative;
+            cursor: pointer;
+            box-shadow: var(--shadow);
+        }
+        
+        .gallery-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover .gallery-img {
+            transform: scale(1.1);
+        }
+        
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(transparent, rgba(10, 10, 10, 0.95));
+            color: var(--text-light);
+            transform: translateY(100%);
+            transition: transform 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        
+        .gallery-item:hover .gallery-overlay {
+            transform: translateY(0);
+        }
+        
+        .gallery-overlay h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--accent-green);
+        }
+        
+        .gallery-overlay p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Модальное окно для изображений и видео */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            animation: fadeIn 0.3s;
+        }
+        
+        .modal-content-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+        
+        .modal-image {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.3);
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .modal-video {
+            max-width: 100%;
+            max-height: 70vh;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(29, 185, 84, 0.3);
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .modal-caption {
+            color: white;
+            font-family: 'Montserrat', sans-serif;
+            margin-top: 15px;
+            font-size: 1.2rem;
+            padding: 0 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 35px;
+            color: #fff;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 1001;
+            background: rgba(0,0,0,0.5);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .close:hover {
+            background: rgba(29, 185, 84, 0.5);
+            transform: rotate(90deg);
+        }
+        
+        /* Пасхалка - скрытое сердечко */
+        .easter-egg-heart {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: radial-gradient(circle, #15803c, #15803d);
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 999;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 20px #15803d;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: white;
+        }
+        
+        .easter-egg-heart:hover {
+            animation: pulse 0.5s infinite;
+            transform: scale(1.1);
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(63, 148, 81, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 77, 109, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 77, 109, 0); }
+        }
+        
+        /* Подсказка для пасхалки */
+        .hint {
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            background: rgba(29, 185, 84, 0.9);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 998;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s ease;
+            pointer-events: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            font-family: 'Raleway', sans-serif;
+            max-width: 200px;
+            text-align: center;
+        }
+        
+        .hint.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Таймлайн */
+        .timeline {
+            background-color: var(--primary-black);
+        }
+        
+        .timeline-container {
+            max-width: 900px;
+            margin: 60px auto 0;
+            position: relative;
+        }
+        
+        .timeline-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: var(--accent-green);
+        }
+        
+        .timeline-item {
+            margin-bottom: 60px;
+            position: relative;
+            width: 45%;
+        }
+        
+        .timeline-item:nth-child(odd) {
+            left: 0;
+        }
+        
+        .timeline-item:nth-child(even) {
+            left: 55%;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background-color: var(--accent-green);
+            border: 3px solid var(--primary-black);
+            box-shadow: 0 0 0 4px var(--accent-green);
+        }
+        
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -50px;
+        }
+        
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -40px;
+        }
+        
+        .timeline-content {
+            background-color: var(--primary-gray);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            border-left: 4px solid var(--accent-green);
+        }
+        
+        .timeline-content h3 {
+            color: var(--accent-green);
+            margin-bottom: 10px;
+        }
+        
+        /* Секция "Наши традиции" */
+        .traditions {
+            background-color: var(--secondary-black);
+        }
+        
+        .traditions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .tradition-card {
+            background-color: var(--primary-gray);
+            padding: 35px;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.4s ease;
+            border: 1px solid transparent;
+        }
+        
+        .tradition-card:hover {
+            border-color: var(--accent-green);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+        
+        .tradition-icon {
+            font-size: 2.5rem;
+            color: var(--accent-green);
+            margin-bottom: 20px;
+        }
+        
+        .tradition-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+        }
+        
+        /* Секция "Пожелания на будущее" */
+        .wishes {
+            background-color: var(--primary-black);
+        }
+        
+        .wishes-content {
+            max-width: 800px;
+            margin: 60px auto 0;
+            background-color: var(--primary-gray);
+            padding: 50px;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--accent-green);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .wishes-content::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--accent-green), var(--light-green));
+        }
+        
+        .wishes-content p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+        
+        .wishes-content p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Футер */
+        footer {
+            background-color: var(--secondary-black);
+            padding: 80px 0 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: 0;
+            width: 100%;
+            height: 50px;
+            background: linear-gradient(to bottom, transparent, var(--secondary-black));
+        }
+        
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .footer-logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--accent-green);
+        }
+        
+        .footer-text {
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            color: var(--text-gray);
+        }
+        
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .social-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background-color: var(--primary-gray);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-size: 1.3rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-icon:hover {
+            background-color: var(--accent-green);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            color: var(--light-gray);
+            font-size: 0.9rem;
+            margin-top: 30px;
+        }
+        
+        /* Плавающие элементы */
+        .floating-elements {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .floating-element {
+            position: absolute;
+            font-size: 24px;
+            color: rgba(29, 185, 84, 0.2);
+            animation: floatAnimation 15s infinite linear;
+        }
+
+        .a{
+            display: flex;
+            justify-content: center;
+        }
+        
+        @keyframes floatAnimation {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.5; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Адаптивность */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 3.5rem; }
+            .about-content { flex-direction: column; }
+            .timeline-container::before { left: 30px; }
+            .timeline-item { width: 100%; left: 0 !important; padding-left: 70px; }
+            .timeline-dot { left: 21px !important; }
+            .fandoms-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            section { padding: 70px 0; }
+            .section-title h2 { font-size: 2.2rem; }
+            .gallery-container { grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); }
+            .fandoms-grid { grid-template-columns: 1fr; }
+            .easter-egg-heart { bottom: 15px; right: 15px; width: 50px; height: 50px; font-size: 20px; }
+            .hint { bottom: 75px; right: 15px; font-size: 12px; max-width: 150px; }
+        }
+        
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero p { font-size: 1.1rem; }
+            .section-title h2 { font-size: 1.8rem; }
+            .contact-form { padding: 30px 20px; }
+            .gallery-item { height: 250px; }
+            .easter-egg-heart { bottom: 10px; right: 10px; width: 45px; height: 45px; font-size: 18px; }
+            .hint { bottom: 65px; right: 10px; font-size: 11px; max-width: 130px; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Плавающие элементы -->
+    <div class="floating-elements" id="floatingElements"></div>
+    
+    <!-- Пасхалка - скрытое сердечко -->
+    <div class="easter-egg-heart" id="easterEgg">
+        <i class="fas fa-heart"></i>
+    </div>
+    
+    <!-- Подсказка для пасхалки -->
+    <div class="hint" id="easterEggHint">Нажми на сердечко! ❤</div>
+    
+    <!-- Модальное окно для изображений и видео -->
+    <div id="imageModal" class="modal">
+        <span class="close" id="closeModal">&times;</span>
+        <div class="modal-content-container">
+            <img class="modal-image" id="modalImage" style="display: none;">
+            <video class="modal-video" id="modalVideo" controls style="display: none;">
+                Ваш браузер не поддерживает видео тег.
+            </video>
+            <div class="modal-caption" id="modalCaption"></div>
+        </div>
+    </div>
+    
+    <!-- Шапка -->
+    <header class="hero">
+        <div class="hero-bg"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1>Оля</h1>
+                <p>Для моей лучшей подруги</p>
+                <p>Сайт создан, чтобы напомнить, как сильно я тебя ценю и люблю</p>
+                <a href="#about" class="cta-button">Наша история <i class="fas fa-arrow-down"></i></a>
+            </div>
+        </div>
+    </header>
+    
+    <!-- О нашей дружбе -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>О нашей дружбе</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>Даже не знаю с чего и начать... с благодарности, наверное. Спасибо, что ты у меня есть. Я ненавижу программирование, но это единственная вещь, которую я могу сделать как небольшой подарок для тебя.</p>
+                    <p>Мы дружим уже очень и очень долго, с 5 класса, это уже 9 лет. Я помню лишь странный момент, когда ты вернулась из лагеря и мы будто бы не общались. Но в остальное время? Ха, я уже не помню как жила до тебя.</p>
+                    <p>Этот сайт — моя попытка выразить благодарность за все эти годы дружбы, смеха и поддержки. За то, что многое в моей жизни сложилось благодаря тебе. Знай, что я всегда рядом и всегда готова прийти к тебе на помощь.</p>
+                </div>
+                <div class="about-image">
+                    <div class="image-frame" id="aboutPhoto">
+                        <img src="./imgs/5402218579857444081.jpg" alt="Две подруги">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Наши любимые фандомы -->
+    <section class="fandoms">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши любимые фандомы</h2>
+            </div>
+            <h4 class="a">Многие фандомы для меня открыла именно ты. Поэтому за это я тоже должна тебя поблагодарить.</h4>
+            <div class="fandoms-grid">
+                <div class="fandom-card" data-img="./imgs/9ce0773901a4c5d2e6c53e76163ff050_2123043185409319889.jpg" data-description="Дотторе, я хочу от тебя детей">
+                    <div class="fandom-img">
+                        <img src="./imgs/9ce0773901a4c5d2e6c53e76163ff050_2123043185409319889.jpg" alt="Генш">
+                    </div>
+                    <div class="fandom-content">
+                        <h3>Геншин импакт</h3>
+                        <p>Геншин - один из самых дорогих сердцу фандом. Конечно же решила вставить обложку обновы из-за Доты, но Арлекино там тоже есть) Я так хочу написать чертов фанфик про жизнь наших персонажей, но видимо я уже разучилась писать аэаэаэ</p>
+                    </div>
+                </div>
+                <div class="fandom-card" data-img="./imgs/c79328f4ad7b087e44489e9a1c1540c3_6135682936849667706.png" data-description="НЕТ ЗДЕСЬ НЕ БУДЕТ МОЛОЧКА МИДЕЯ">
+                    <div class="fandom-img">
+                        <img src="./imgs/c79328f4ad7b087e44489e9a1c1540c3_6135682936849667706.png" alt="хонк">
+                    </div>
+                    <div class="fandom-content">
+                        <h3>Хонкай Стар Рейл</h3>
+                        <p>Нашла обложку с Цзин Юанем, ты же его так обожаешь. В хонкай я начала играть тоже благодаря тебе. Иначе я бы точно не стала выслушивать твои шуточки про Мидея!!!! И не фаедеи, а миденоны канон, запомни это раз и навсегда. Распространяй!!!</p>
+                    </div>
+                </div>
+                <div class="fandom-card" data-img="./imgs/426a79ea78b44abd1c36414389a57d31.jpg" data-description="Ну мы">
+                    <div class="fandom-img">
+                        <img src="./imgs/426a79ea78b44abd1c36414389a57d31.jpg" alt="Звездные Войны">
+                    </div>
+                    <div class="fandom-content">
+                        <h3>Магическая битва</h3>
+                        <p>Я, кстати, шипперю Сатору и Годжо. Так что соси. Вставила этих двух, но только потому что ты любишь их. МЛМ И ВЛВ ЭТО ГРЕХ, ИДИ ПОМОЛИСЬ В ЦЕРКОВЬ, ЧТОБ БОЛЬШЕ ПОХАБЩИНУ НЕ ЧИТАЛА! Вон Тоджи, продал сына, зато натурал!! Учитесь.</p>
+                    </div>
+                </div>
+                <div class="fandom-card" data-img="./imgs/fefe82c4-806c-4c6a-a729-9cb047a25b0a.jpg" data-description="Че такой унылый? Умер что-ли?)">
+                    <div class="fandom-img">
+                        <img src="./imgs/fefe82c4-806c-4c6a-a729-9cb047a25b0a.jpg" alt="атака">
+                    </div>
+                    <div class="fandom-content">
+                        <h3>Атака титанов</h3>
+                        <p>До сих пор вспоминаю, как ты рассказывала мне впервые об атаке. Это было зимой, мы грелись в магазине. Я все вообще по другому представляла.. а как было страшно смотреть первую серию в школе. А потом еще и дома без тебя. Зато теперь это легенда. Точнее, легенда - Леви, что родил 6 детей.</p>
+                    </div>
+                </div>
+                <div class="fandom-card" data-img="./imgs/m_fTvU9w3AF5S5n2irWCUr7s7Vs83LMzww.jpg" data-description="ВЕРНИТЕ ЗРЕНИЕ СУКИ">
+                    <div class="fandom-img">
+                        <img src="./imgs/m_fTvU9w3AF5S5n2irWCUr7s7Vs83LMzww.jpg" alt="Клубешник">
+                    </div>
+                    <div class="fandom-content">
+                        <h3>Клуб Романтики</h3>
+                        <p>НЕ ЗНАЛА, КОГО ВСТАВИТЬ, РЕШИЛА РАФАИЛА... И ДРУГОЙ КАРТИНКИ НЕ НАШЛА. И ВООБЩЕ ОН В ЛЮБОМ ВИДЕ КРАСАВЧИК. Я возмущаюсь тому, что у тебя больше аватарок и карточек, чем у меня! И знаешь что? я Амала БасУ и я играю на басУ. А ещё у меня гг симпатичнее ихихихихихихихихихих.</p>
+                    </div>
+                </div>
+                <div class="fandom-card" data-img="./imgs/25cecb7a0b99ad3cfcafcce91941ef616a94393f98937b2c2c2409023e86b885._SX1080_FMjpg_.jpg" data-description="Вокзалы канон">
+                    <div class="fandom-img">
+                        <img src="./imgs/25cecb7a0b99ad3cfcafcce91941ef616a94393f98937b2c2c2409023e86b885._SX1080_FMjpg_.jpg" alt="Хазбин">
+                    </div>
+                    <div class="fandom-content">
+                        <h3>Отель Хазбин</h3>
+                        <p>Рада, что всё же заставила тебя глянуть. А то не хотела, не хотела.. да-да, а потом говорила, что хочешь порнуху с Воксом и Аластором. ПОШЕЛ НАФИГ ВАЛЕНТИНО, ЛЮЦИФЕР И ДАЛЕЕ ПО СПИСКУ. И ВООБЩЕ ОНИ ЖЕНАТЫ, ПРОСТО В ССОРЕ И ВЕСЬ СЕРИАЛ О ТОМ, КАК ОНИ ПЫТАЮТСЯ ПОМИРИТЬСЯ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Галерея с описанием -->
+    <section class="gallery">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наши моменты</h2>
+            </div>
+            <h4 class="a">К сожалению, у нас довольно мало совместных фото, зато куча воспоминаний.</h4>
+            <div class="gallery-container">
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444074.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Мы в машине</h3>
+                        <p>Хе, ты тогда со мной поехала искать мой нынешний телефон. Как назло мы проехали все магазы и он был лишь в последнем. Зато потом нас папа домой отвез.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444075.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Моё прошлое др</h3>
+                        <p>Самое спокойное из всех. У меня дома. Смотрели горбуна из Норт-Дама, Призрака Оперы... а потом ещё ночная прогулка. Приятные воспоминания.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444076.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Дуры две</h3>
+                        <p>Я не помню, какой это класс, но кабинет технологии. А как мы юбки шили... готовить было намного приятнее. Наша бригада самая ахуенная была.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444077.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Матеша</h3>
+                        <p>Мы в кабинете математики. Я ПОМНЮ, КАК ССАЛАСЬ ВЫХОДИТЬ К ДОСКЕ И СУДОРОЖНО ПЫТАЛАСЬ В ГДЗ НАЙТИ НУЖНЫЙ НОМЕР. УЖАС.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444078.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>На прогулку</h3>
+                        <p>Это было уже почти лето. Я пыталась тебе скрытно сфотать, но кажется, что не вышло аэаэаэаэ.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444168.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Выпускной</h3>
+                        <p>Моя любимая фотка оттуда. Честно говоря, хочется вспомнить оттуда что-то веселое, но на ум приходит только то, как я подвернула ногу и неприятные чувства, когда Даша лежала на Диме. Как же тупо я проебала этот день.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444163.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Твоя обработка</h3>
+                        <p>Я не помню при каких обстоятельствах было сделано это фото. Скорее всего, зимой, мы вроде как тогда украшали класс.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444165.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Переезд</h3>
+                        <p>О, я тогда только переехала и ты пришла ко мне в гости. Хм, что мы вообще могли делать в то время, даже интересно.</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="./imgs/5402218579857444166.jpg" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <h3>Бест френды</h3>
+                        <p>Эти девочки вели свои дневники и снимали в лайк... да уж, зато есть что вспомнить. ЗАЧЕМ Я ПОУДАЛЯЛА ВСЕ ВИДЕО, Я БЫ ХОТЕЛА ЖЕСТКО КРИНЖАНУТЬ С НИХ. У меня остались лишь наши слоумо... МАША, СЛОУМО ТУДУДУДУДУДДУ</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Таймлайн -->
+    <section class="timeline">
+        <div class="container">
+            <div class="section-title">
+                <h2>Наша история</h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2017 - Начало дружбы</h3>
+                        <p>Этот роковой день и поступок одной особы я никогда не забуду. Не знаю, чтобы сейчас было, если бы ты не подошла ко мне в тот день. Мне... если честно даже страшно представить.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2018 - ЛПС на ютубе</h3>
+                        <p>И эти видосики по прежнему там. Я даже трогать их не стану, потом наши мужья и дети будут угарать над этим. Кстати, считаю, что лпс тоже нас очень сблизили. Ещё и в лайк снимали... </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2019 - Гаражи</h3>
+                        <p>Наверное это самое запоминающееся, что было в том году. Вроде бы в том... Но как минимум было реально очень весело. И мы с тобой не параноики, а паркурщики. И роблоксеры. И вроде как Мстителей вместе смотрели. Эх, давно это было.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2020 - Странный год</h3>
+                        <p>Этот и следующий - пусть и странные, но от чего-то самые лучшие. Когда мне нравился Есин, когда я начала смотреть атаку титанов и мы ездили по аниме магазам. Я люблю то время.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2021 - Генш</h3>
+                        <p>А ещё знаешь чей год? ЗАЛУПЫ! Вот время то было золотое. Залупа! А щас какое-то молоко. И генш, конечно же. Как мы с тобой вместе копили на моего Торта, как я случайно выбила Итто с Рито, хотя копила на Чжуна. ТАК ЧТО НЕ КРУТИ РАДИ ФИОЛККИ!!!!! О, и мы импровизацию начали активно смотреть.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2022 - Тяжелый год</h3>
+                        <p>Выпускной вышел так себе. Я выпила твою алкашку из стакана... и плакала, переживала, что мы можем перестать общаться. Я ушла после 9. Ты осталась до 11. Даже не знаю... очень страшно было. Плохо было. Колледж может чему-то меня и научил, но первый курс был адом, ещё и наше с тобой общение было прерывистым из-за занятости каждой. Поистине самый тяжкий год для меня.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2023 - Стрей Кидс</h3>
+                        <p>Как-то тоже тяжело что-то вспоминается, помню, что ты жестко готовилась к экзам. Также, помню, что Аня научила меня их различать и я начала шипперить банбинов. КАНООООН. И мы еще поставили в статус "бери куклу и беги" с Джисоном и Бан Чаном. Я ещё у тебя на ночь впервые оставалась летом в этом году и Муська спала на мне.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2024 - не знаю как назвать АХАХАХА</h3>
+                        <p>Ты поступила в лобач. А ещё моя первая попытка заставить тебя смотреть Хазбин. Ну и фсё... В начале этого года зимой я стала лютым фанатом Дотторе и по прежнему им остаюсь. Хм, два года это мало. В тот же год вышла и Арлекино. О, и Бутхилл, кстати, тоже. Время летит быстро. Неужели Дотик правда будет скоро игровым? А ещё я в сентября этого года ради Тоджи посмотрела магичку. Достижение.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-content">
+                        <h3>2025 - Внезапный</h3>
+                        <p>Почему такой? Сложно сказать. Ну, например, я съебалась с колледжа на 4 курсе. Пиздец. Или, например, ты наконец глянула Хазбин, или я впервые не сбежала с хоррор-квеста, а прошла до конца, или ты чуть сама не ушла с уника, или в симсе у тебя твоя Дина заболела и не могла забеременеть... внезапно же, да? ДА? я не знаю, с каждым годом становится тяжелее что-то конкретизировать. Может я правда аутист АХАХАХАХАХ. Шучу.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Пожелания на будущее -->
+    <section class="wishes">
+        <div class="container">
+            <div class="section-title">
+                <h2>Пожелания на будущее</h2>
+            </div>
+            <div class="wishes-content">
+                <p>Я желаю тебе всего самого светлого и доброго. Чтобы твои мечты сбывались, а планы реализовывались. В ближайшее время, конечно же, сдать все долги и закончить лобач. А даже если и нет... хочу просто, чтобы в жизни у тебя все сложилось.</p>
+                <p>Надеюсь, что наша дружба пройдет через все испытания и останется такой же крепкой через 10, 20, 50 лет. Чтобы наши дети всё же подружились, потом полюбили друг друга, поженились... а чеб нет ааээаэа.</p>
+                <p>Пусть у тебя будет много причин для улыбки, а трудности будут лишь временными и преодолимыми, потому что жизнь любит поднасрать. Я считаю, что надо поднасрать ей в ответ.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Футер -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">Сайт создан с любовью и благодарностью за все годы нашей дружбы. Спасибо, что ты есть в моей жизни, литл мяумяу АХАХАХА</p>
+                <p class="copyright">©2026 Сайт для лучшей подруги. Все права на дружбу защищены.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Создаем плавающие элементы
+            const floatingElements = document.getElementById('floatingElements');
+            const symbols = ['❤', '★', '☘', '♣', '✦', '❖', '✧'];
+            
+            for (let i = 0; i < 25; i++) {
+                const element = document.createElement('div');
+                element.classList.add('floating-element');
+                element.innerHTML = symbols[Math.floor(Math.random() * symbols.length)];
+                element.style.left = Math.random() * 100 + '%';
+                element.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                element.style.animationDelay = Math.random() * 15 + 's';
+                element.style.animationDuration = (Math.random() * 10 + 15) + 's';
+                floatingElements.appendChild(element);
+            }
+            
+            // Модальное окно для изображений и видео
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalCaption = document.getElementById('modalCaption');
+            const closeModal = document.getElementById('closeModal');
+            
+            // Функция открытия модального окна для изображений
+            function openImageModal(src, caption) {
+                modalImg.style.display = 'block';
+                modalVideo.style.display = 'none';
+                modalImg.src = src;
+                modalCaption.textContent = caption;
+                modal.style.display = 'block';
+            }
+            
+            // Функция открытия модального окна для видео
+            function openVideoModal(src, caption) {
+                modalImg.style.display = 'none';
+                modalVideo.style.display = 'block';
+                modalVideo.src = src;
+                modalCaption.textContent = caption;
+                modal.style.display = 'block';
+            }
+            
+            // Добавляем обработчики клика на все изображения в галерее
+            const galleryItems = document.querySelectorAll('.gallery-item');
+            
+            galleryItems.forEach(item => {
+                item.addEventListener('click', function() {
+                    const img = this.querySelector('.gallery-img');
+                    const title = this.querySelector('.gallery-overlay h3').textContent;
+                    const description = this.querySelector('.gallery-overlay p').textContent;
+                    
+                    openImageModal(img.src, `${title}: ${description}`);
+                });
+            });
+            
+            // Добавляем обработчик клика на фото в блоке "О нашей дружбе"
+            const aboutPhoto = document.getElementById('aboutPhoto');
+            if (aboutPhoto) {
+                aboutPhoto.addEventListener('click', function() {
+                    const img = this.querySelector('img');
+                    openImageModal(img.src, 'Наша дружба - самая ценная вещь в моей жизни');
+                });
+            }
+            
+            // Добавляем обработчики клика на карточки фандомов
+            const fandomCards = document.querySelectorAll('.fandom-card');
+            fandomCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const imgSrc = this.getAttribute('data-img');
+                    const description = this.getAttribute('data-description');
+                    
+                    openImageModal(imgSrc, description);
+                });
+            });
+            
+            // Пасхалка - секретное видео
+            const easterEgg = document.getElementById('easterEgg');
+            const easterEggHint = document.getElementById('easterEggHint');
+            let hintShown = false;
+            
+            // Секретное видео (ЗАМЕНИТЕ НА СВОЕ ВИДЕО)
+            // Примеры видео URL (выберите один или замените на свой):
+            // 1. Видео с YouTube (нужно использовать специальный embed URL)
+            // 2. Видео с Vimeo
+            // 3. Видео с Google Drive или другого хранилища
+            // 4. Локальное видео (если загрузите на сервер)
+            
+            const secretVideo = "imgs/video5467875954904817162.mp4"; // Тестовое видео
+            
+            // ИЛИ используйте это (раскомментируйте строку ниже и замените URL):
+            // const secretVideo = "https://ваш_видео_файл.mp4";
+            
+            easterEgg.addEventListener('click', function() {
+                openVideoModal(secretVideo, 'ЭТО ПОСЛЕДНИЙ РАЗ ТАКАЯ УСТУПКА ТЕБЕ');
+                easterEggHint.classList.remove('show');
+                
+                // Автовоспроизведение видео (не работает в некоторых браузерах без взаимодействия пользователя)
+                setTimeout(() => {
+                    if (modalVideo) {
+                        modalVideo.play().catch(e => {
+                            console.log("Автовоспроизведение заблокировано браузером");
+                        });
+                    }
+                }, 300);
+            });
+            
+            // Показываем подсказку для пасхалки, когда пользователь прокручивает страницу
+            function checkScrollForHint() {
+                if (hintShown) return;
+                
+                const scrollPosition = window.scrollY + window.innerHeight;
+                const pageHeight = document.documentElement.scrollHeight;
+                
+                // Показываем подсказку, когда пользователь прокрутил 70% страницы
+                if (scrollPosition > pageHeight * 0.7) {
+                    easterEggHint.classList.add('show');
+                    hintShown = true;
+                    
+                    // Скрываем подсказку через 10 секунд
+                    setTimeout(() => {
+                        easterEggHint.classList.remove('show');
+                    }, 10000);
+                }
+            }
+            
+            window.addEventListener('scroll', checkScrollForHint);
+            checkScrollForHint(); // Проверяем при загрузке
+            
+            // Закрытие модального окна
+            function closeModalFunction() {
+                modal.style.display = 'none';
+                // Останавливаем видео при закрытии
+                if (modalVideo) {
+                    modalVideo.pause();
+                    modalVideo.currentTime = 0;
+                }
+            }
+            
+            closeModal.addEventListener('click', closeModalFunction);
+            
+            // Закрытие при клике вне изображения/видео
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModalFunction();
+                }
+            });
+            
+            // Закрытие модального окна по клавише Escape
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.style.display === 'block') {
+                    closeModalFunction();
+                }
+            });
+            
+            // Плавное появление элементов при скролле
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Наблюдаем за всеми секциями
+            document.querySelectorAll('section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(30px)';
+                section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(section);
+            });
+            
+            // Анимация для карточек фандомов
+            fandomCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Анимация для элементов таймлайна
+            const timelineItems = document.querySelectorAll('.timeline-item');
+            timelineItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(-30px)';
+                item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(item);
+            });
+            
+            // Анимация для карточек традиций
+            const traditionCards = document.querySelectorAll('.tradition-card');
+            traditionCards.forEach(card => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                observer.observe(card);
+            });
+            
+            // Параллакс эффект для шапки
+            window.addEventListener('scroll', function() {
+                const scrolled = window.pageYOffset;
+                const heroBg = document.querySelector('.hero-bg');
+                if (heroBg) {
+                    heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+                }
+            });
+            
+            // Случайное изменение цвета некоторых плавающих элементов
+            setInterval(() => {
+                const elements = document.querySelectorAll('.floating-element');
+                elements.forEach(el => {
+                    if (Math.random() > 0.7) {
+                        el.style.color = `rgba(29, 185, 84, ${Math.random() * 0.3 + 0.1})`;
+                    }
+                });
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
